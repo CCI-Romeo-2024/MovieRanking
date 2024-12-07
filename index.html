@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CN - Home</title>
+
+    <link rel="stylesheet" href="styles/reset.css"/>
+    <link rel="stylesheet" href="styles/global.scss"/>
+    <link rel="stylesheet" href="styles/sidebar.scss"/>
+    <link rel="stylesheet" href="styles/app.scss"/>
+    <link rel="stylesheet" href="styles/search.scss"/>
+    <link rel="stylesheet" href="styles/home.scss"/>
+
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <h1>CN</h1>
+            </div>
+            <nav>
+                <a href="./index.html" class="active" title="Home">
+                    <div class="bar-active"></div>
+                    <div class="content">
+                        <div class="icon">
+                            <img src="/svg/home.svg" alt="">
+                        </div>
+                        <div class="name">
+                            Home
+                        </div>
+                    </div>
+                </a>
+                <a href="./saved.html" title="Saved">
+                    <div class="bar-active"></div>
+                    <div class="content">
+                        <div class="icon">
+                            <img src="/svg/save.svg" alt="">
+                        </div>
+                        <div class="name">
+                            Saved
+                        </div>
+                    </div>
+                </a>
+                <a href="./ranking.html" title="Rankings">
+                    <div class="bar-active"></div>
+                    <div class="content">
+                        <div class="icon">
+                            <img src="/svg/ranking.svg" alt="">
+                        </div>
+                        <div class="name">
+                            Rankings
+                        </div>
+                    </div>
+                </a>
+                <a href="./search.html" title="Search">
+                    <div class="bar-active"></div>
+                    <div class="content">
+                        <div class="icon">
+                            <img src="/svg/search.svg" alt="">
+                        </div>
+                        <div class="name">
+                            Search
+                        </div>
+                    </div>
+                </a>
+                <a href="./suggest.html" title="Suggest">
+                    <div class="bar-active"></div>
+                    <div class="content">
+                        <div class="icon">
+                            <img src="/svg/suggest.svg" alt="">
+                        </div>
+                        <div class="name">
+                            Suggest
+                        </div>
+                    </div>
+                </a>
+            </nav>
+            <div class="settings">
+                <div class="icon">
+                    <img src="/svg/settings.svg" alt="">
+                </div>
+                <div class="name">
+                    Settings
+                </div>
+            </div>
+        </div>
+        <main class="app">
+            <h1 class="title">
+                Home
+            </h1>
+            <div id="app">
+                <div class="app-header">
+                    <div class="filters">
+                        <div class="filters-active">
+                            <div class="filter active" data-filter="all">All</div>
+                            <div class="filter" data-filter="all">News</div>
+                        </div>
+                        <div class="filter-select">
+<!--                            <label for="filter-select">Categories</label>-->
+<!--                            <select class="filter-select" id="filter-select">-->
+<!--                                <option value="">Categories</option>-->
+<!--                                <option value="romance">Romance</option>-->
+<!--                                <option value="science-fiction">Science Fiction</option>-->
+<!--                                <option value="sex">Sex</option>-->
+<!--                            </select>-->
+                        </div>
+                    </div>
+                    <div class="search-box">
+                        <input type="search" class="active" placeholder=" " name="search" id="search-input">
+                    </div>
+                </div>
+                <div class="app-content" id="app-movies">
+                    <div class="movies-cards">
+                        <!-- Movies Cards -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="/src/pages/home/home.js"></script>
+</body>
+</html>

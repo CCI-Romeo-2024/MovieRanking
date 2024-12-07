@@ -1,0 +1,13 @@
+.app {
+    padding: 58px 0 0 65px;
+
+    .title {
+        font-size: 3em;
+        font-weight: 500;
+        margin-bottom: 42px;
+    }
+}
+
+#app {
+    height: calc(100vh - 58px - 3em - 10px - 42px);
+}

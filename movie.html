@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Film</title>
+
+    <link rel="stylesheet" href="styles/reset.css"/>
+    <link rel="stylesheet" href="styles/global.scss"/>
+    <link rel="stylesheet" href="styles/sidebar.scss"/>
+    <link rel="stylesheet" href="styles/app.scss"/>
+    <link rel="stylesheet" href="styles/search.scss"/>
+    <link rel="stylesheet" href="styles/movie.scss"/>
+
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <h1>CN</h1>
+            </div>
+            <nav>
+                <a href="./index.html" class="" title="Home">
+                    <div class="bar-active"></div>
+                    <div class="content">
+                        <div class="icon">
+                            <img src="/svg/home.svg" alt="">
+                        </div>
+                        <div class="name">
+                            Home
+                        </div>
+                    </div>
+                </a>
+                <a href="./saved.html" title="Saved">
+                    <div class="bar-active"></div>
+                    <div class="content">
+                        <div class="icon">
+                            <img src="/svg/save.svg" alt="">
+                        </div>
+                        <div class="name">
+                            Saved
+                        </div>
+                    </div>
+                </a>
+                <a href="./ranking.html" title="Rankings">
+                    <div class="bar-active"></div>
+                    <div class="content">
+                        <div class="icon">
+                            <img src="/svg/ranking.svg" alt="">
+                        </div>
+                        <div class="name">
+                            Rankings
+                        </div>
+                    </div>
+                </a>
+                <a href="./search.html" title="Search">
+                    <div class="bar-active"></div>
+                    <div class="content">
+                        <div class="icon">
+                            <img src="/svg/search.svg" alt="">
+                        </div>
+                        <div class="name">
+                            Search
+                        </div>
+                    </div>
+                </a>
+                <a href="./suggest.html" title="Suggest">
+                    <div class="bar-active"></div>
+                    <div class="content">
+                        <div class="icon">
+                            <img src="/svg/suggest.svg" alt="">
+                        </div>
+                        <div class="name">
+                            Suggest
+                        </div>
+                    </div>
+                </a>
+            </nav>
+            <div class="settings">
+                <div class="icon">
+                    <img src="/svg/settings.svg" alt="">
+                </div>
+                <div class="name">
+                    Settings
+                </div>
+            </div>
+        </div>
+        <main class="app">
+            <h1 class="title">
+                Movie - Dune
+            </h1>
+            <div id="app">
+                <div class="app-header">
+                    <div class="filters">
+                    </div>
+                    <div class="search-box">
+                        <input type="text" placeholder=" " name="search" id="search-input">
+                    </div>
+                </div>
+                <div class="app-content flex" id="app-movie">
+                    <div class="movie-header flex">
+                        <h1>Dune: Deuxième partie</h1>
+                        <div class="movie-rating flex">
+                            <img src="/public/svg/star.svg" alt="">
+                            <div class="rating flex">
+                                <span>8.5</span>
+                                <span>/10</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="movie-content flex">
+                        <div class="movie-poster-tags flex">
+                            <img src="https://fr.web.img2.acsta.net/c_310_420/pictures/24/01/26/10/18/5392835.jpg" alt="">
+                            <div class="tags">
+                                <div class="tag">Science Fiction</div>
+                                <div class="tag">8.5</div>
+                            </div>
+                        </div>
+                        <div class="movie-trailer">
+                            <iframe src="https://www.youtube.com/embed/SUfv36bB5jA" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-description">
+                            Paul Atreides s’unit à Chani et aux Fremen pour mener la révolte contre ceux qui ont anéanti sa famille
+                        </div>
+                        <hr>
+                        <div class="movie-author">
+                            <span>Réalisation : </span>
+                            <span>Denis Villeneuve</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<!--    <script type="module" src="/src/pages/movie.js"></script>-->
+</body>
+</html>

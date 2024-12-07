@@ -1,0 +1,102 @@
+.sidebar {
+    .logo {
+        display: flex;
+        justify-content: center;
+
+        h1 {
+            width: fit-content;
+            margin-top: 93px;
+
+            font-size: 6.3em;
+            font-style: normal;
+            font-weight: 900;
+            line-height: normal;
+            letter-spacing: -8px;
+            background: linear-gradient(126deg, #FF6B00 0%, #4E4E4E 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    nav {
+        margin-top: 35px;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 60px;
+
+
+        a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            &.active {
+                .bar-active {
+                    background: var(--text-primary);
+                }
+
+                .content {
+                    opacity: 1;
+                }
+            }
+
+            &:hover {
+                .content {
+                    opacity: 1;
+                }
+            }
+
+            .bar-active {
+                height: 27px;
+                width: 4px;
+                border-radius: 0 4px 4px 0;
+            }
+
+            .content {
+                display: flex;
+                align-items: center;
+
+                opacity: 0.5;
+
+                .icon {
+                    width: 100px;
+                    height: 30px;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                }
+
+                .name {
+                    font-size: 1.5em;
+                }
+            }
+        }
+    }
+
+    .settings {
+        position: absolute;
+        bottom: 40px;
+
+        display: flex;
+        align-items: center;
+
+        padding-left: 14px;
+        cursor: pointer;
+
+        .icon {
+            width: 100px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .name {
+            font-size: 1.5em;
+        }
+
+    }
+}

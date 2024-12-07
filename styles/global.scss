@@ -1,0 +1,48 @@
+@import url('/public/fonts/SF-Pro-2/stylesheet.css');
+
+:root {
+    --bg-primary: #171717;
+    --bg-secondary: #2C2C2C;
+
+    --text-primary: #FFF;
+    --text-secondary: #E2E2E2;
+
+    --primary: #FF6B00;
+}
+
+* {
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-primary);
+}
+
+body {
+    background: var(--bg-secondary);
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+}
+
+.sidebar {
+    width: 300px;
+    height: 100%;
+
+    background: var(--bg-secondary);
+}
+
+.app {
+    width: calc(100vw - 300px);
+    height: 100%;
+
+    background: linear-gradient(90deg, #1E1E1E 0%, #000 100%);
+}
+
+.flex {
+    display: flex;
+}

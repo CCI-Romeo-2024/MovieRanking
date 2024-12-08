@@ -1,8 +1,9 @@
-@import url('/public/fonts/SF-Pro-2/stylesheet.css');
+@import url('/public/fonts/SF-Pro-Text/stylesheet.css');
 
 :root {
     --bg-primary: #171717;
     --bg-secondary: #2C2C2C;
+    --bg-side-bar: #1E1E1E;
 
     --text-primary: #FFF;
     --text-secondary: #E2E2E2;
@@ -11,7 +12,7 @@
 }
 
 * {
-    font-family: 'SF Pro Display', sans-serif;
+    font-family: 'SFProText', sans-serif;
     font-weight: 400;
     font-style: normal;
     color: var(--text-primary);
@@ -29,18 +30,11 @@ body {
     display: flex;
 }
 
-.sidebar {
-    width: 300px;
-    height: 100%;
-
-    background: var(--bg-secondary);
-}
-
 .app {
     width: calc(100vw - 300px);
     height: 100%;
 
-    background: linear-gradient(90deg, #1E1E1E 0%, #000 100%);
+    background: linear-gradient(90deg, #1E1E1E -300px, #000 100%);
 }
 
 .flex {

@@ -12,7 +12,7 @@ const movieCardHTML = (movie) => {
                         </div>
                         <div class="movie-tags">
                             <div class="category tag">${movie.category.name}</div>
-                            <div class="rate tag">${(movie.score)}/10</div>
+                            <div class="rate tag"><span class="tag-star">&#11088;</span>${(movie.rating)}/10</div>
                         </div>
                     </div>
                     <div class="movie-saved"></div>

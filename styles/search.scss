@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
 
-    width: calc(100% - 30px);
+    width: calc(100% - 30px - 16px);
 
     .filters {
         display: flex;
@@ -20,7 +20,7 @@
                 border-radius: 30px;
 
                 font-size: 1.1em;
-                font-weight: lighter;
+                font-weight: 300;
 
                 background: var(--bg-secondary);
 
@@ -69,7 +69,6 @@
                 width: 10px;
 
                 background-color: red;
-
             }
         }
     }

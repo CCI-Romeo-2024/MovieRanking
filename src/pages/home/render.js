@@ -1,8 +1,8 @@
 import { api } from "../../models/api_model.js";
 const moviesCardsElements = document.querySelector("#app-movies > .movies-cards");
 
-const movieCardHTML = (movie) => {
-    return `<div class="movie-card" data-movie-id="${movie.id}">
+const movieCardHTML = (movie, index) => {
+    return `<div class="movie-card" data-movie-id="${movie.id}" style="order: ${index+1}">
                 <a href="./movie.html?id=${movie.id}">
                     <img src="${movie.img}" alt="">
                     <div class="movie-info">

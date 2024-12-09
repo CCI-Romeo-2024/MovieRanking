@@ -32,6 +32,28 @@
             }
 
         }
+        .filter-select {
+            background: var(--bg-secondary);
+
+            width: 160px;
+            height: fit-content;
+
+            padding: 10px 22px;
+            border-radius: 30px;
+
+            font-size: 1.1em;
+            font-weight: 300;
+
+            background: var(--bg-secondary);
+
+            cursor: pointer;
+
+            background-image: url('/public/svg/dropdown.svg');
+            background-repeat: no-repeat;
+            background-position: right 22px center;
+
+
+        }
 
     }
 

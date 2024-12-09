@@ -94,18 +94,14 @@
                 <div class="app-header">
                     <div class="filters">
                         <div class="filters-active">
-                            <div class="filter active" data-filter="all">All</div>
-                            <div class="filter" data-filter="all">News</div>
+                            <div class="filter active" data-filter="all">Tous</div>
                         </div>
-                        <div class="filter-select">
-<!--                            <label for="filter-select">Categories</label>-->
-<!--                            <select class="filter-select" id="filter-select">-->
-<!--                                <option value="">Categories</option>-->
-<!--                                <option value="romance">Romance</option>-->
-<!--                                <option value="science-fiction">Science Fiction</option>-->
-<!--                                <option value="sex">Sex</option>-->
-<!--                            </select>-->
-                        </div>
+                        <select class="filter-select" id="filter-select" title="Choisie ta categorie">
+                            <option value="" selected disabled>Categories <img src="./public/svg/dropdown.svg" alt=""></option>
+                            <option value="romance">Romance</option>
+                            <option value="science-fiction">Science Fiction</option>
+                            <option value="sex">Sex</option>
+                        </select>
                     </div>
                     <div class="search-box">
                         <input type="search" class="active" placeholder=" " name="search" id="search-input">

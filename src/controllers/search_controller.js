@@ -13,26 +13,21 @@ searchInput.addEventListener('input', (event) => {
         const movie = movies.find((movie) => movie.id === elementID)
         element.style.display = movie ? 'revert' : 'none'
 
-        // if (movie)
-        //     element.style.display = 'none'
-        // else
-        //     element.style.display = 'revert'
-
     })
-
-    // document.querySelector(`.movie-card[data-movie-id="${movie.id}"]`)
-
 
 })
 
-const movieSearchRender = (movie) => {
-    return `<div class="movie">
-                <a href="movie.html?id=${movie.id}">
-                    <img src="${movie.img}" alt="">
-                    <div class="info">
-                        <h5>${movie.name}</h5>
-                        <p>${movie.description}</p>
-                    </div>
-                </a>
-            </div>`
-}
+
+
+
+// const movieSearchRender = (movie) => {
+//     return `<div class="movie" style="order: ">
+//                 <a href="movie.html?id=${movie.id}">
+//                     <img src="${movie.img}" alt="">
+//                     <div class="info">
+//                         <h5>${movie.name}</h5>
+//                         <p>${movie.description}</p>
+//                     </div>
+//                 </a>
+//             </div>`
+// }

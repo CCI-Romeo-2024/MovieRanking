@@ -94,13 +94,14 @@
                 <div class="app-header">
                     <div class="filters">
                         <div class="filters-active">
-                            <div class="filter active" data-filter="all">Tous</div>
+                            <div class="filter active" id="filter-all">Tous</div>
+                            <div class="custom">
+                                <!-- Current Category Filter -->
+                            </div>
                         </div>
-                        <select class="filter-select" id="filter-select" title="Choisie ta categorie">
-                            <option value="" selected disabled>Categories <img src="./public/svg/dropdown.svg" alt=""></option>
-                            <option value="romance">Romance</option>
-                            <option value="science-fiction">Science Fiction</option>
-                            <option value="sex">Sex</option>
+                        <select class="filter-select" id="filter-select" title="Choisie ta catégorie">
+                            <option value="" selected disabled>Catégories</option>
+                            <!-- Categories Options -->
                         </select>
                     </div>
                     <div class="search-box">

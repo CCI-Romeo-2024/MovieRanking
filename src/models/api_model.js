@@ -98,19 +98,27 @@ class Api {
         return movie ? movie : null
     }
 
-    getMovieBySearch(search) {
-        const format = (value) => value
-                .normalize("NFD")
-                .replace(/[\u0300-\u036f]/g, "")
-                .replace(/[^a-zA-Z0-9\s]/g, "")
-                .replace(/:/g, "")
-                .replaceAll('  ', ' ')
-                .toLowerCase()
-                .trim()
-        const filter = format(search)
+    // getMovieBySearch(search) {
+    //     const format = (value) => value
+    //             .normalize("NFD")
+    //             .replace(/[\u0300-\u036f]/g, "")
+    //             .replace(/[^a-zA-Z0-9\s]/g, "")
+    //             .replace(/:/g, "")
+    //             .replaceAll('  ', ' ')
+    //             .toLowerCase()
+    //             .trim()
+    //     const filter = format(search)
+    //
+    //     return this.getMovies.filter(movie =>
+    //             [movie.name, movie.description, movie.category.name, movie.author].some(value => format(value).indexOf(filter) > -1))
+    // }
 
-        return this.getMovies.filter(movie =>
-                [movie.name, movie.description, movie.category.name, movie.author].some(value => format(value).indexOf(filter) > -1))
+    static sortMoviesByRating(movies) {
+        return movies.sort((a, b) => b.rating - a.rating)
+    }
+
+    filterMovies(filters) {
+        return this.getMovies.filter(movie => filters.includes(movie.category.id))
     }
 
     async postNewMovie(movie) {

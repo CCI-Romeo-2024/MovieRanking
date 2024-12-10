@@ -1,10 +1,17 @@
+import { searchEngine } from "../pages/home/main.js";
+
 const filterSelect = document.querySelector('#filter-select')
-// const moviesCardsElements = document.querySelectorAll('.movies-cards > .movie-card')
 
-// console.log('test2')
 
-filterSelect.addEventListener('select', (event) => {
-    event.preventDefault();
+filterSelect.addEventListener('change', (event) => {
+    searchEngine.setCategory(event.target.value)
 
-    console.log('test')
+    event.target.value = '' // cancel event
+})
+
+
+document.addEventListener('click', (event) => {
+    if (!event.target.classList.contains('filter')) return;
+
+    searchEngine.removeCategory()
 })

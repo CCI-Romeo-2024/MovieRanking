@@ -6,13 +6,17 @@
 
     .filters {
         display: flex;
-        gap: 20px;
+        //gap: 20px;
 
         .filters-active {
             display: flex;
             gap: 20px;
-
             .filter {
+                display: flex;
+                align-items: center;
+
+                gap: 8px;
+
                 width: fit-content;
                 height: fit-content;
 
@@ -26,8 +30,18 @@
 
                 cursor: pointer;
 
+                img {
+                    pointer-events: none;
+                }
+
                 &.active {
                     background: var(--primary);
+                }
+            }
+
+            .custom {
+                .filter:first-child {
+                    margin-right: 20px;
                 }
             }
 

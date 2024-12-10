@@ -4,6 +4,14 @@ import renderCategoryFilter from "../renders/category_filter.js";
 
 class Engine {
     static pageSize = 10
+    static ESort = {
+        azName: (a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }),
+        zaName: (a, b) => b.name.localeCompare(a.name, undefined, { sensitivity: 'base' }),
+        azAuthor: (a, b) => a.author.localeCompare(b.author, undefined, { sensitivity: 'base' }),
+        zaAuthor: (a, b) => b.author.localeCompare(a.author, undefined, { sensitivity: 'base' }),
+        upLikes: (a, b) => b.rating - a.rating,
+        downLikes: (a, b) => a.rating - b.rating
+    }
 
     constructor(movies, categories) {
         this.movies = movies
@@ -13,6 +21,8 @@ class Engine {
         this.selectedCategory = null
         // Search
         this.searchInput = ""
+        // Sort
+        this.currentSort = Engine.ESort.azName
 
         this.currentPage = 1
     }
@@ -25,6 +35,13 @@ class Engine {
         this.renderFilter()
 
         return true
+    }
+
+    changeSort(key) {
+        if (!Engine.ESort.hasOwnProperty(key)) return
+        this.currentSort = Engine.ESort[key]
+
+        this.renderMovies(1)
     }
 
     removeCategory() {
@@ -53,6 +70,8 @@ class Engine {
 
         if (this.selectedCategory)
             movies = movies.filter(movie => movie.category.id === this.selectedCategory)
+
+        movies.sort(this.currentSort)
 
         return movies
     }

@@ -15,3 +15,12 @@ document.addEventListener('click', (event) => {
 
     searchEngine.removeCategory()
 })
+
+
+const sortSelect = document.querySelector('#sort-select')
+
+
+sortSelect.addEventListener('change', (event) => {
+    searchEngine.changeSort(event.target.value)
+
+})

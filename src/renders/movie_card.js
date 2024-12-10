@@ -1,3 +1,5 @@
+import { User } from "../models/index.js";
+
 /**
  * @param {Object} movie
  * @param {Number} index
@@ -16,7 +18,7 @@ const card = (movie, index) => `
                         <div class="rate tag"><span class="tag-star">&#11088;</span>${(movie.rating)}/10</div>
                     </div>
                 </div>
-                <div class="movie-saved"></div>
+                <div class="movie-saved ${User.getMovie(movie.id).save ? 'active' : ''}"></div>
             </a>
         </div>
 `

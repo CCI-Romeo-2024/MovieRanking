@@ -1,17 +1,6 @@
-// search by url
+const urlParams = new URLSearchParams(window.location.search)
 
-/*
-
-// ----------- Example -----------
-
-import {searchEngine} from "./main.js";
-
-const searchInput = document.querySelector('#search-input')
-
-setTimeout(() => {
-    searchInput.value = 'un pti'
-    searchEngine.setSearchInput(searchInput.value)
-}, 1000)
-
-
-*/
+if (urlParams.has('fs')) {
+    document.getElementById('nav-search').classList.add('active')
+    document.getElementById('nav-home').classList.remove('active')
+}

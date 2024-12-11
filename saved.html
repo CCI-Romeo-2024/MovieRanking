@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CN - Home</title>
+
+    <link rel="stylesheet" href="styles/reset.css"/>
+    <link rel="stylesheet" href="styles/global.scss"/>
+    <link rel="stylesheet" href="styles/sidebar.scss"/>
+    <link rel="stylesheet" href="styles/app.scss"/>
+    <link rel="stylesheet" href="styles/search.scss"/>
+    <link rel="stylesheet" href="styles/home.scss"/>
+
+</head>
+<body>
+<div class="container">
+    <div class="sidebar">
+        <div class="logo">
+            <a href="./index.html">CN</a>
+        </div>
+        <nav>
+            <a href="./index.html" title="Home">
+                <div class="bar-active"></div>
+                <div class="content">
+                    <div class="icon">
+                        <img src="/svg/home.svg" alt="">
+                    </div>
+                    <div class="name">
+                        Home
+                    </div>
+                </div>
+            </a>
+            <a href="./saved.html" class="active" title="Saved">
+                <div class="bar-active"></div>
+                <div class="content">
+                    <div class="icon">
+                        <img src="/svg/save.svg" alt="">
+                    </div>
+                    <div class="name">
+                        Saved
+                    </div>
+                </div>
+            </a>
+            <a href="./index.html?fs=1" title="Search">
+                <div class="bar-active"></div>
+                <div class="content">
+                    <div class="icon">
+                        <img src="/svg/search.svg" alt="">
+                    </div>
+                    <div class="name">
+                        Search
+                    </div>
+                </div>
+            </a>
+            <a href="./suggest.html" title="Suggest">
+                <div class="bar-active"></div>
+                <div class="content">
+                    <div class="icon">
+                        <img src="/svg/suggest.svg" alt="">
+                    </div>
+                    <div class="name">
+                        Suggest
+                    </div>
+                </div>
+            </a>
+        </nav>
+        <!--            <div class="settings">-->
+        <!--                <div class="icon">-->
+        <!--                    <img src="/svg/settings.svg" alt="">-->
+        <!--                </div>-->
+        <!--                <div class="name">-->
+        <!--                    Settings-->
+        <!--                </div>-->
+        <!--            </div>-->
+    </div>
+    <main class="app">
+        <h1 class="title">
+            Home
+        </h1>
+        <div id="app">
+            <div class="app-header">
+                <div class="filters">
+                    <div class="filters-active">
+                        <div class="filter active" id="filter-all">Tous</div>
+                        <div class="custom">
+                            <!-- Current Category Filter -->
+                        </div>
+                    </div>
+                    <select class="filter-select" id="filter-select" title="Choisie ta catégorie">
+                        <option value="" selected disabled>Catégories</option>
+                        <!-- Categories Options -->
+                    </select>
+                    <select class="filter-select" id="sort-select" title="Triage">
+                        <option value="azName" selected>Nom A-Z</option>
+                        <option value="zaName">Nom Z-A</option>
+                        <option value="azAuthor">Auteur A-Z</option>
+                        <option value="zaAuthor">Auteur Z-A</option>
+                        <option value="upLikes">Score &#10136;</option>
+                        <option value="downLikes">Score &#10138;</option>
+                    </select>
+                </div>
+                <div class="search-box">
+                    <input type="search" class="active" placeholder=" " name="search" id="search-input">
+                </div>
+            </div>
+            <div class="app-content" id="app-movies">
+                <div class="movies-cards">
+                    <!-- Movies Cards -->
+                </div>
+                <div class="pagination-controls">
+                    <button id="pagination-controls-previous-btn">&#60;</button>
+
+                    <span id="pagination-controls-current-page">1</span>
+
+                    <button id="pagination-controls-next-btn">&#62;</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script type="module" src="/src/pages/saved/main.js"></script>
+</body>
+</html>

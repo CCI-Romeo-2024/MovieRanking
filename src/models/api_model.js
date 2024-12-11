@@ -1,4 +1,4 @@
-import {calculateScore, debug} from "../lib";
+import { calculateScore, debug } from "../lib";
 import { Cache } from './index.js'
 import axios from 'axios'
 
@@ -56,13 +56,11 @@ class Api {
         } catch (error) {
             debug(error)
         }
-
-
     }
 
     /**
-     * @return {Array<{id: String, name: String, author: String, video: String, category: Object, description: String, rating: Number, likes: Number, dislikes: Number}>}
-     */
+     * @return {[{id: String, name: String, author: String, video: String, category: {id: String, name: String}, description: String, rating: Number, likes: Number,  dislikes: Number}] | []}
+     * */
     get getMovies() {
         return this.movies.map(movie => ({
             ...movie,
@@ -88,35 +86,12 @@ class Api {
     }
 
     /**
-     * @return {{id: String, name: String, author: String, video: String, category: {id: string, name: String}, description: String,  likes: Number,  dislikes: Number} | null}
+     * @return {{id: String, name: String, author: String, video: String, category: {id: String, name: String}, description: String,  likes: Number,  dislikes: Number} | null}
      * */
     getMovieById(id) {
         const movie = this.getMovies.find(movie => movie.id === id)
 
         return movie ? movie : null
-    }
-
-    // getMovieBySearch(search) {
-    //     const format = (value) => value
-    //             .normalize("NFD")
-    //             .replace(/[\u0300-\u036f]/g, "")
-    //             .replace(/[^a-zA-Z0-9\s]/g, "")
-    //             .replace(/:/g, "")
-    //             .replaceAll('  ', ' ')
-    //             .toLowerCase()
-    //             .trim()
-    //     const filter = format(search)
-    //
-    //     return this.getMovies.filter(movie =>
-    //             [movie.name, movie.description, movie.category.name, movie.author].some(value => format(value).indexOf(filter) > -1))
-    // }
-
-    static sortMoviesByRating(movies) {
-        return movies.sort((a, b) => b.rating - a.rating)
-    }
-
-    filterMovies(filters) {
-        return this.getMovies.filter(movie => filters.includes(movie.category.id))
     }
 
     async postNewMovie(movie) {

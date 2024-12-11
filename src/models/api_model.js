@@ -61,16 +61,14 @@ class Api {
     }
 
     /**
-     * @return {[{id: String, name: String, author: String, video: String, category: {id: string, name: String}, description: String, rating: Number, likes: Number,  dislikes: Number}] | []}
-     * */
+     * @return {Array<{id: String, name: String, author: String, video: String, category: Object, description: String, rating: Number, likes: Number, dislikes: Number}>}
+     */
     get getMovies() {
-        return this.movies.map(movie => {
-            return {
-                ...movie,
-                category: this.getCategoryById(movie.category),
-                rating: calculateScore(movie)
-            }
-        })
+        return this.movies.map(movie => ({
+            ...movie,
+            category: this.getCategoryById(movie.category),
+            rating: calculateScore(movie)
+        }))
     }
 
     /**

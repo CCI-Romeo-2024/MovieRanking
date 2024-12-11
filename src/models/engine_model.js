@@ -3,7 +3,7 @@ import renderCategoryFilter from "../renders/category_filter.js";
 // imp
 
 class Engine {
-    static pageSize = 10
+    static pageSize = 20
     static ESort = {
         azName: (a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }),
         zaName: (a, b) => b.name.localeCompare(a.name, undefined, { sensitivity: 'base' }),
@@ -18,20 +18,31 @@ class Engine {
         this.categories = categories
 
         // Filters
-        this.selectedCategory = null
-        // Search
-        this.searchInput = ""
-        // Sort
-        this.currentSort = Engine.ESort.azName
+        this.selectedCategory = ''
+        this.categoriesSelect = document.querySelector('.filters-active > .custom');
 
+        // Search
+        this.search = ''
+        this.searchInput = document.querySelector('#search-input')
+
+        // Sort
+        this.currentSortName = 'azName'
+        this.sortSelect = document.querySelector('#sort-select')
+
+        // Pagination
         this.currentPage = 1
+        this.maxPages = 1
+
+        this.prevBtn = document.getElementById('pagination-controls-previous-btn')
+        this.nextBtn = document.getElementById('pagination-controls-next-btn')
+        this.currentPageElement = document.getElementById('pagination-controls-current-page')
     }
 
     setCategory(categoryID) {
         if (!this.categories.find((c) => c.id === categoryID)) return false
 
         this.selectedCategory = (categoryID)
-        this.renderMovies(1)
+        this.renderMovies()
         this.renderFilter()
 
         return true
@@ -39,27 +50,27 @@ class Engine {
 
     changeSort(key) {
         if (!Engine.ESort.hasOwnProperty(key)) return
-        this.currentSort = Engine.ESort[key]
+        // this.currentSort = Engine.ESort[key]
+        this.currentSortName = key
 
-        this.renderMovies(1)
+        this.renderMovies()
     }
 
     removeCategory() {
-        this.selectedCategory = null
+        this.selectedCategory = ''
 
-        this.renderMovies(1)
+        this.renderMovies()
         this.renderFilter()
         return true
     }
 
-    setSearchInput(value) {
-        this.searchInput = value
-
-        this.renderMovies(1)
+    setSearch(value) {
+        this.search = value
+        this.renderMovies()
     }
 
     get getFilteredMovies() {
-        const searchFilter = Engine.formatSearch(this.searchInput)
+        const searchFilter = Engine.formatSearch(this.search)
 
         let movies = this.movies
 
@@ -71,45 +82,119 @@ class Engine {
         if (this.selectedCategory)
             movies = movies.filter(movie => movie.category.id === this.selectedCategory)
 
-        movies.sort(this.currentSort)
+        movies.sort(Engine.ESort[this.currentSortName])
 
         return movies
     }
 
-    /**
-     * @param {Number} page - from 0 to X
-     * */
-    renderMovies(page) {
+    nextPage() {
+        if (this.currentPage+1 > this.maxPages) return
+
+        this.currentPage++
+        this.renderMovies()
+    }
+
+    prevPage() {
+        if (this.currentPage-1 < 0) return
+
+        this.currentPage--
+        this.renderMovies()
+    }
+
+    updatePagination() {
+        this.prevBtn.disabled = this.currentPage === 1
+        this.nextBtn.disabled = this.currentPage === this.maxPages
+
+        this.currentPageElement.textContent = this.currentPage
+    }
+
+    updateSort() {
+        this.sortSelect.value = this.currentSortName
+    }
+
+    updateSearch() {
+        this.searchInput.value = this.search
+    }
+
+    updateParams() {
+        const params = { q: this.search, s: this.currentSortName, p: this.currentPage, f: this.selectedCategory, fs: 0 }
+
+        const currentUrl = new URL(window.location.href);
+
+        for (const key in params) {
+            if (params[key])
+                currentUrl.searchParams.set(key, params[key]);
+            else
+                currentUrl.searchParams.delete(key)
+        }
+
+        history.pushState(null, '', currentUrl);
+    }
+
+    loadParams() {
+        const currentUrl = new URL(window.location.href);
+
+        const search = currentUrl.searchParams.get('q') || '';
+        const sortBy = currentUrl.searchParams.get('s') || 'azName';
+        const currentPage = parseInt(currentUrl.searchParams.get('p')) || 1;
+        const selectedCategory = currentUrl.searchParams.get('f') || '';
+        const focusSearch = parseInt(currentUrl.searchParams.get('fs')) || 0;
+
+        if (search) {
+            this.search = search;
+            this.updateSearch()
+        }
+
+        if (sortBy) {
+            this.currentSortName = sortBy;
+            this.updateSort()
+        }
+
+        if (currentPage) {
+            this.currentPage = currentPage;
+            this.updatePagination()
+        }
+
+        if (selectedCategory) {
+            this.selectedCategory = selectedCategory;
+            this.renderFilter()
+        }
+
+        if (focusSearch === 1) {
+            this.searchInput.focus();
+        }
+    }
+
+    renderMovies() {
         const moviesCardsElements = document.querySelector("#app-movies > .movies-cards");
         moviesCardsElements.innerHTML = ''
 
         const movies = this.getFilteredMovies
-        // const NMovies = movies.length
+        const NMovies = movies.length
 
-        movies.forEach((movie, i) => {
-            moviesCardsElements.innerHTML += renderMovieCard(movie, i)
-        })
+        movies
+                .filter((movie, i) => i >= Engine.pageSize * (this.currentPage - 1) && i < Engine.pageSize * this.currentPage)
+                .forEach((movie, i) => {
+                    moviesCardsElements.innerHTML += renderMovieCard(movie, i)
+                })
 
-                // .filter((movie, i) => Engine.pageSize * page < i && i < Engine.pageSize * page-1)
+        this.maxPages = Math.ceil(NMovies / Engine.pageSize)
 
-
+        this.updatePagination()
+        this.updateParams()
     }
 
+
     renderFilter() {
-        const filterParent = document.querySelector('.filters-active > .custom');
         const filterAll = document.querySelector('#filter-all');
 
         if (this.selectedCategory) {
             filterAll.classList.remove('active')
-            filterParent.innerHTML = renderCategoryFilter(this.categories.find(category => category.id === this.selectedCategory))
+            this.categoriesSelect.innerHTML = renderCategoryFilter(this.categories.find(category => category.id === this.selectedCategory))
         } else {
             filterAll.classList.add('active')
-            filterParent.innerHTML = ''
+            this.categoriesSelect.innerHTML = ''
         }
-
-        // this.selectedCategory
-
-        // this
     }
 
     static formatSearch = (value) => value

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8"/>
     <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
@@ -21,7 +21,7 @@
                 <a href="./index.html">CN</a>
             </div>
             <nav>
-                <a href="./index.html" class="active" title="Home">
+                <a href="./index.html" class="active" title="Home" id="nav-home">
                     <div class="bar-active"></div>
                     <div class="content">
                         <div class="icon">
@@ -43,18 +43,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="./ranking.html" title="Rankings">
-                    <div class="bar-active"></div>
-                    <div class="content">
-                        <div class="icon">
-                            <img src="/svg/ranking.svg" alt="">
-                        </div>
-                        <div class="name">
-                            Rankings
-                        </div>
-                    </div>
-                </a>
-                <a href="./search.html" title="Search">
+                <a href="?fs=1" title="Search" id="nav-search">
                     <div class="bar-active"></div>
                     <div class="content">
                         <div class="icon">
@@ -77,14 +66,14 @@
                     </div>
                 </a>
             </nav>
-            <div class="settings">
-                <div class="icon">
-                    <img src="/svg/settings.svg" alt="">
-                </div>
-                <div class="name">
-                    Settings
-                </div>
-            </div>
+<!--            <div class="settings">-->
+<!--                <div class="icon">-->
+<!--                    <img src="/svg/settings.svg" alt="">-->
+<!--                </div>-->
+<!--                <div class="name">-->
+<!--                    Settings-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
         <main class="app">
             <h1 class="title">
@@ -108,8 +97,8 @@
                             <option value="zaName">Nom Z-A</option>
                             <option value="azAuthor">Auteur A-Z</option>
                             <option value="zaAuthor">Auteur Z-A</option>
-                            <option value="upLikes">Score ⬆️ </option>
-                            <option value="downLikes">Score ⬇️ </option>
+                            <option value="upLikes">Score &#10136;</option>
+                            <option value="downLikes">Score &#10138;</option>
                         </select>
                     </div>
                     <div class="search-box">
@@ -119,6 +108,13 @@
                 <div class="app-content" id="app-movies">
                     <div class="movies-cards">
                         <!-- Movies Cards -->
+                    </div>
+                    <div class="pagination-controls">
+                        <button id="pagination-controls-previous-btn">&#60;</button>
+
+                        <span id="pagination-controls-current-page">1</span>
+
+                        <button id="pagination-controls-next-btn">&#62;</button>
                     </div>
                 </div>
             </div>

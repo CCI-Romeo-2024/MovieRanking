@@ -11,10 +11,10 @@ To preview this project run
 
 - ### Home - Search Engine
     - [x] Lister les films
-    - [ ] Effectuer la recherche sur le nom, l’auteur et la description, mettre en évidence le champs qui match.
+    - [ ] Effectuer la recherche sur le nom, l’auteur et la description, mettre en évidence le champ qui match.
     - [x] Lister les catégories sous forme de tags et pouvoir filtrer la liste de films en cliquant sur les tags
-    - [ ] Gérer une pagination
-    - [ ] Pouvoir trier par like, nom ou auteur
+    - [x] Gérer une pagination
+    - [x] Pouvoir trier par like, nom ou auteur
 
 - ### Movie
     - [x] Afficher toutes les informations d'un film (y compris la vidéo)

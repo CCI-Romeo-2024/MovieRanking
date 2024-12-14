@@ -18,6 +18,14 @@ renderCategories(categories.sort(Engine.ESort.azName), '#filter-select')
 
 
 // Controller
-import '../../controllers/filter_controller.js'
-import '../../controllers/search_controller.js'
-import '../../controllers/pagination_controller.js'
+import filter_controller from '../../controllers/filter_controller.js';
+import search_controller from '../../controllers/search_controller.js';
+import pagination_controller from '../../controllers/pagination_controller.js';
+
+const controllers = [
+    filter_controller,
+    search_controller,
+    pagination_controller
+];
+
+controllers.forEach(controller => controller(searchEngine));

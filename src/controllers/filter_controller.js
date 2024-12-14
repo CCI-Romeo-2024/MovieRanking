@@ -1,26 +1,27 @@
-import { searchEngine } from "../pages/home/main.js";
+export default (searchEngine) => {
 
-const filterSelect = document.querySelector('#filter-select')
-
-
-filterSelect.addEventListener('change', (event) => {
-    searchEngine.setCategory(event.target.value)
-
-    event.target.value = '' // cancel event
-})
+    const filterSelect = document.querySelector('#filter-select')
 
 
-document.addEventListener('click', (event) => {
-    if (!event.target.classList.contains('filter')) return;
+    filterSelect.addEventListener('change', (event) => {
+        searchEngine.setCategory(event.target.value)
 
-    searchEngine.removeCategory()
-})
-
-
-const sortSelect = document.querySelector('#sort-select')
+        event.target.value = '' // cancel event
+    })
 
 
-sortSelect.addEventListener('change', (event) => {
-    searchEngine.changeSort(event.target.value)
+    document.addEventListener('click', (event) => {
+        if (!event.target.classList.contains('filter')) return;
 
-})
+        searchEngine.removeCategory()
+    })
+
+
+    const sortSelect = document.querySelector('#sort-select')
+
+
+    sortSelect.addEventListener('change', (event) => {
+        searchEngine.changeSort(event.target.value)
+
+    })
+}

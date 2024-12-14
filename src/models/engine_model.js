@@ -1,14 +1,15 @@
-import renderMovieCard from "../renders/movie_card.js";
-import renderCategoryFilter from "../renders/category_filter.js";
+import renderMovieCard from '../renders/movie_card.js';
+import renderCategoryFilter from '../renders/category_filter.js';
+
 // imp
 
 class Engine {
     static pageSize = 20
     static ESort = {
-        azName: (a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }),
-        zaName: (a, b) => b.name.localeCompare(a.name, undefined, { sensitivity: 'base' }),
-        azAuthor: (a, b) => a.author.localeCompare(b.author, undefined, { sensitivity: 'base' }),
-        zaAuthor: (a, b) => b.author.localeCompare(a.author, undefined, { sensitivity: 'base' }),
+        azName: (a, b) => a.name.localeCompare(b.name, undefined, {sensitivity: 'base'}),
+        zaName: (a, b) => b.name.localeCompare(a.name, undefined, {sensitivity: 'base'}),
+        azAuthor: (a, b) => a.author.localeCompare(b.author, undefined, {sensitivity: 'base'}),
+        zaAuthor: (a, b) => b.author.localeCompare(a.author, undefined, {sensitivity: 'base'}),
         upLikes: (a, b) => b.rating - a.rating,
         downLikes: (a, b) => a.rating - b.rating
     }
@@ -74,13 +75,20 @@ class Engine {
 
         let movies = this.movies
 
-        if (searchFilter.length > 0)
+        if (searchFilter)
             movies = movies.filter(movie =>
-                    [movie.name, movie.description, movie.category.name, movie.author].some(value => Engine.formatSearch(value).indexOf(searchFilter) > -1)
+                    [
+                        movie.name || '',
+                        movie.description || '',
+                        movie.category?.name || '',
+                        movie.author || ''
+                    ].some(value => Engine.formatSearch(value).indexOf(searchFilter) > -1)
             )
 
+        console.log(movies)
+
         if (this.selectedCategory)
-            movies = movies.filter(movie => movie.category.id === this.selectedCategory)
+            movies.filter(movie => movie.category && movie.category.id === this.selectedCategory);
 
         movies.sort(Engine.ESort[this.currentSortName])
 
@@ -88,14 +96,14 @@ class Engine {
     }
 
     nextPage() {
-        if (this.currentPage+1 > this.maxPages) return
+        if (this.currentPage + 1 > this.maxPages) return
 
         this.currentPage++
         this.renderMovies()
     }
 
     prevPage() {
-        if (this.currentPage-1 < 0) return
+        if (this.currentPage - 1 < 0) return
 
         this.currentPage--
         this.renderMovies()
@@ -117,7 +125,7 @@ class Engine {
     }
 
     updateParams() {
-        const params = { q: this.search, s: this.currentSortName, p: this.currentPage, f: this.selectedCategory, fs: 0 }
+        const params = {q: this.search, s: this.currentSortName, p: this.currentPage, f: this.selectedCategory, fs: 0}
 
         const currentUrl = new URL(window.location.href);
 
@@ -200,11 +208,10 @@ class Engine {
     static formatSearch = (value) => value
             .normalize("NFD")
             .replace(/[\u0300-\u036f]/g, "")
-            .replace(/[^a-zA-Z0-9\s]/g, "")
-            .replace(/:/g, "")
-            .replaceAll('  ', ' ')
+            .replace(/[^a-zA-Z0-9\s-]/g, "")
+            .replace(/\s+/g, " ")
             .toLowerCase()
-            .trim()
+            .trim();
 }
 
 export default Engine

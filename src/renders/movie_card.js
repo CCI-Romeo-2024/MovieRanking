@@ -7,10 +7,10 @@ import { User } from "../models/index.js";
  * */
 const card = (movie, index, search = '') => {
     const highlight = (text) => {
-        if (!search) return text;
+        if (!search || !text) return text;
 
         const searchRegex = new RegExp(`(${search})`, 'gi');
-        return text.replace(searchRegex, '<span class="highlight">$1</span>');
+        return text?.replace(searchRegex, '<span class="highlight">$1</span>');
     };
 
     return `<div class="movie-card" data-movie-id="${movie.id}" style="order: ${index + 1}">

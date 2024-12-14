@@ -1,6 +1,6 @@
-import { Api } from '../../models/index.js'
-import initButtons from '../../controllers/button_controller.js'
-import renderMovieView from '../../renders/movie_view.js'
+import { Api } from '@models/index.js'
+import initButtons from '@controllers/button_controller.js'
+import renderMovieView from '@renders/movie_view.js'
 
 const searchParams = new URLSearchParams(window.location.search)
 

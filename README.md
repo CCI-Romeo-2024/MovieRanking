@@ -15,7 +15,7 @@ To preview this project run
     - [x] Lister les catégories sous forme de tags et pouvoir filtrer la liste de films en cliquant sur les tags
     - [x] Gérer une pagination
     - [x] Pouvoir trier par like, nom ou auteur
-    - [ ] Si vide proposer d'aller sur la page proposer
+    - [ ] Si vide proposer d'aller sur la page suggérer
 
 - ### Movie
     - [x] Afficher toutes les informations d'un film (y compris la vidéo)

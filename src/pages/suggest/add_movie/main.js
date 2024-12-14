@@ -1,7 +1,7 @@
-import {Api, Engine} from '../../../models/index.js'
-import { renderCategories } from '../../../renders/category_option.js'
-import Form from '../../../controllers/form_controller.js'
-import { Youtube } from '../../../lib/index.js'
+import {Api, Engine} from '/src/models/index.js'
+import { renderCategories } from '/src/renders/category_option.js'
+import Form from '/src/controllers/form_controller.js'
+import { Youtube } from '/src/lib/index.js'
 
 const categories = Api.getCategories
 renderCategories(categories.sort(Engine.ESort.azName), '#category-select')

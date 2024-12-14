@@ -1,7 +1,7 @@
-import { renderCategories } from '../../../renders/category_option.js';
-import Form from '../../../controllers/form_controller.js'
-import { updateValueForm } from '../../../lib/index.js';
-import {Api, Engine} from '../../../models/index.js'
+import { renderCategories } from '@renders/category_option.js';
+import Form from '@controllers/form_controller.js'
+import { updateValueForm } from '@lib/index.js';
+import {Api, Engine} from '@models/index.js'
 
 
 const movieSelect = document.getElementById('category-select')

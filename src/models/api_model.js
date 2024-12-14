@@ -1,4 +1,4 @@
-import { calculateScore, debug } from "../lib";
+import { calculateScore, debug } from '@lib';
 import { Cache } from './index.js'
 import axios from 'axios'
 

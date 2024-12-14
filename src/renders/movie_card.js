@@ -1,4 +1,4 @@
-import { User } from "../models/index.js";
+import { User } from '/src/models/index.js';
 
 /**
  * @param {Object} movie

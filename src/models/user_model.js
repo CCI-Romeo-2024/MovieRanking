@@ -1,5 +1,4 @@
-import {debug, haveSameStructure} from '../lib/index.js';
-import { Api } from "./index.js";
+import { Api } from './index.js';
 
 class User {
     static KEY = 'user'

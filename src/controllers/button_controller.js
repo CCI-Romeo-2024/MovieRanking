@@ -1,26 +1,37 @@
-import { Button, User } from '../models/index.js';
+import { Button, User } from '@models/index.js';
+
+import saveIcon from '@svg/save/save.svg'
+import saveIconFill from '@svg/save/save-fill.svg'
+
+import likeIcon from '@svg/like-dislike/like.svg'
+import likeIconFill from '@svg/like-dislike/like-fill.svg'
+
+import dislikeIcon from '@svg/like-dislike/dislike.svg'
+import dislikeIconFill from '@svg/like-dislike/dislike-fill.svg'
+
+
 
 const buttons = {
     save: {
         id: 'save-btn',
         active: false,
         icons: {
-            base: './public/svg/save/save.svg',
-            fill: './public/svg/save/save-fill.svg',
+            base: saveIcon,
+            fill: saveIconFill,
         }
     },
     like: {
         id: 'like-btn',
         icons: {
-            base: './public/svg/like-dislike/like.svg',
-            fill: './public/svg/like-dislike/like-fill.svg',
+            base: likeIcon,
+            fill: likeIconFill,
         }
     },
     dislike: {
         id: 'dislike-btn',
         icons: {
-            base: './public/svg/like-dislike/dislike.svg',
-            fill: './public/svg/like-dislike/dislike-fill.svg',
+            base: dislikeIcon,
+            fill: dislikeIconFill,
         }
     }
 }

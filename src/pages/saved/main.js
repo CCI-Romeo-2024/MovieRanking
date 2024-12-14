@@ -1,5 +1,5 @@
-import { Api, Engine, User } from '../../models/index.js';
-import { renderCategories } from '../../renders/category_option.js';
+import { Api, Engine, User } from '@models/index.js';
+import { renderCategories } from '@renders/category_option.js';
 
 
 const movies = Api.getMovies.filter((movie) => User.getMovie(movie.id).save)
@@ -17,9 +17,9 @@ renderCategories(categories, '#filter-select')
 
 
 // Controller
-import filter_controller from '../../controllers/filter_controller.js';
-import search_controller from '../../controllers/search_controller.js';
-import pagination_controller from '../../controllers/pagination_controller.js';
+import filter_controller from '@controllers/filter_controller.js';
+import search_controller from '@controllers/search_controller.js';
+import pagination_controller from '@controllers/pagination_controller.js';
 
 const controllers = [
     filter_controller,

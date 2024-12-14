@@ -1,5 +1,5 @@
-import { Api, Engine } from '../../models/index.js';
-import { renderCategories } from '../../renders/category_option.js';
+import { Api, Engine } from '@models/index.js';
+import { renderCategories } from '@renders/category_option.js';
 import './load.js'
 
 
@@ -18,9 +18,9 @@ renderCategories(categories.sort(Engine.ESort.azName), '#filter-select')
 
 
 // Controller
-import filter_controller from '../../controllers/filter_controller.js';
-import search_controller from '../../controllers/search_controller.js';
-import pagination_controller from '../../controllers/pagination_controller.js';
+import filter_controller from '/src/controllers/filter_controller.js';
+import search_controller from '/src/controllers/search_controller.js';
+import pagination_controller from '/src/controllers/pagination_controller.js';
 
 const controllers = [
     filter_controller,

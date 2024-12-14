@@ -1,7 +1,5 @@
-import renderMovieCard from '../renders/movie_card.js';
-import renderCategoryFilter from '../renders/category_filter.js';
-
-// imp
+import renderMovieCard from '@renders/movie_card.js';
+import renderCategoryFilter from '@renders/category_filter.js';
 
 class Engine {
     static pageSize = 20
@@ -85,10 +83,9 @@ class Engine {
                     ].some(value => Engine.formatSearch(value).indexOf(searchFilter) > -1)
             )
 
-        console.log(movies)
 
         if (this.selectedCategory)
-            movies.filter(movie => movie.category && movie.category.id === this.selectedCategory);
+            movies = movies.filter(movie => movie.category.id === this.selectedCategory);
 
         movies.sort(Engine.ESort[this.currentSortName])
 

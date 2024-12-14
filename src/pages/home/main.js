@@ -1,5 +1,5 @@
 import { Api, Engine } from '../../models/index.js';
-import { renderCategories } from './render.js';
+import { renderCategories } from '../../renders/category_option.js';
 import './load.js'
 
 
@@ -14,9 +14,7 @@ export { searchEngine }
 searchEngine.loadParams()
 
 searchEngine.renderMovies()
-renderCategories(categories)
-
-// Load url settings
+renderCategories(categories.sort(Engine.ESort.azName), '#filter-select')
 
 
 // Controller

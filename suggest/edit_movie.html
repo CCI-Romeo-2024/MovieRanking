@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="../public/vite.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CN - Home</title>
+
+    <link rel="stylesheet" href="../styles/reset.css"/>
+    <link rel="stylesheet" href="../styles/global.scss"/>
+    <link rel="stylesheet" href="../styles/sidebar.scss"/>
+    <link rel="stylesheet" href="../styles/app.scss"/>
+    <link rel="stylesheet" href="../styles/suggest.scss"/>
+    <link rel="stylesheet" href="../styles/suggest_form.scss"/>
+
+</head>
+<body>
+<div class="container">
+    <div class="sidebar">
+        <div class="logo">
+            <a href="../index.html">CN</a>
+        </div>
+        <nav>
+            <a href="../index.html" title="Home">
+                <div class="bar-active"></div>
+                <div class="content">
+                    <div class="icon">
+                        <img src="/svg/home.svg" alt="">
+                    </div>
+                    <div class="name">
+                        Home
+                    </div>
+                </div>
+            </a>
+            <a href="../saved.html" title="Saved">
+                <div class="bar-active"></div>
+                <div class="content">
+                    <div class="icon">
+                        <img src="/svg/save.svg" alt="">
+                    </div>
+                    <div class="name">
+                        Saved
+                    </div>
+                </div>
+            </a>
+            <a href="../index.html?fs=1" title="Search">
+                <div class="bar-active"></div>
+                <div class="content">
+                    <div class="icon">
+                        <img src="/svg/search.svg" alt="">
+                    </div>
+                    <div class="name">
+                        Search
+                    </div>
+                </div>
+            </a>
+            <a href="./index.html" class="active" title="Suggest">
+                <div class="bar-active"></div>
+                <div class="content">
+                    <div class="icon">
+                        <img src="/svg/suggest.svg" alt="">
+                    </div>
+                    <div class="name">
+                        Suggest
+                    </div>
+                </div>
+            </a>
+        </nav>
+    </div>
+    <main class="app">
+        <div class="content">
+            <h1 class="title">Modifier un Film</h1>
+            <form class="form">
+                <div class="inputs">
+                    <div class="select">
+                        <select id="movie-select" name="movie" title="Choisie le film a modifier" required>
+                            <option value="" selected disabled>Films</option>
+                            <!-- Categories Options -->
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <input type="text" name="name" placeholder="Nom" required/>
+                    </div>
+
+                    <div class="field">
+                        <input type="text" name="description" placeholder="Description" required/>
+                    </div>
+
+                    <div class="select">
+                        <select id="category-select" name="category" title="Choisie la catégorie du film" required>
+                            <option value="" selected disabled>Catégories</option>
+                            <!-- Categories Options -->
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <input type="text" name="author" placeholder="Réalisateur" required/>
+                    </div>
+
+                    <div class="field">
+                        <input type="url" name="img" placeholder="Image URL" required/>
+                    </div>
+
+                    <div class="field">
+                        <input type="url" name="video" placeholder="Trailer URL (ex: youtu.be/pGnoCpfO2VM)" required/>
+                    </div>
+                </div>
+
+                <div class="controls double">
+                    <button type="button" class="delete" disabled>Supprimer</button>
+                    <button type="submit" class="submit">Suggérer</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+<script type="module" src="/src/pages/suggest/edit_movie/main.js"></script>
+</body>
+</html>

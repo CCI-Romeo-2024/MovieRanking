@@ -1,0 +1,83 @@
+.app {
+    .content {
+        height: 100vh;
+        gap: 0px;
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 54px;
+
+            height: 100%;
+
+            input, select, button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                width: min(580px, calc((100vw - 300px) * 0.8));
+                height: 50px;
+                background: var(--bg-side-bar);
+                border-radius: 18px;
+
+                padding-left: 20px;
+
+                font-size: 1.1em;
+
+                color: white;
+
+                &::placeholder {
+                    opacity: 0.5;
+                }
+            }
+
+            select {
+                background-image: url('/public/svg/dropdown.svg');
+                background-repeat: no-repeat;
+                background-position: right 20px center;
+            }
+
+            button {
+                width: 220px;
+                padding: 0;
+
+                background-color: var(--primary);
+
+                font-weight: 600;
+
+                cursor: pointer;
+
+                &:disabled {
+                    cursor: not-allowed;
+                }
+
+                &.progress {
+                    cursor: progress;
+                }
+
+                &.delete {
+                    border: 2px solid var(--primary);
+
+                    background: rgba(255, 255, 255, 0.10);
+                }
+            }
+
+            .inputs {
+                display: flex;
+                flex-direction: column;
+                gap: 26px;
+
+            }
+
+            .controls {
+                display: flex;
+                justify-content: center;
+            }
+
+            .double {
+                justify-content: space-between;
+            }
+        }
+    }
+}

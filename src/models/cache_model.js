@@ -10,6 +10,14 @@ class Cache_model {
 
     /**
      * @param {String} key
+     * */
+    static destroy(key) {
+        sessionStorage.removeItem(key)
+        sessionStorage.removeItem(this.getKeyTime(key))
+    }
+
+    /**
+     * @param {String} key
      * @return {{data: Object[], date: Number}}
      * */
     static get(key) {

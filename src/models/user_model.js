@@ -60,6 +60,8 @@ class User {
 
         if (movie.like || movie.dislike) return movie
 
+        Api.dislikeMovie(id);
+
         return this.setMovie(id, { dislike: true })
     }
 

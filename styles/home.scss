@@ -60,7 +60,7 @@
 
         .movies-cards {
             padding-bottom: 100px;
-            
+
             width: calc(100% - 15px - 16px);
 
             display: grid;
@@ -69,6 +69,8 @@
             justify-content: start;
 
             .movie-card {
+                max-width: 260px;
+
                 a {
                     position: relative;
 
@@ -85,7 +87,7 @@
                         border-radius: 8px;
                         width: 100%;
                         aspect-ratio: 177/261;
-                        object-fit: cover;
+                        //object-fit: cover;
                     }
 
                     .movie-info {
@@ -168,9 +170,11 @@
                     }
                 }
                 &:hover {
-                    .movie-saved {
+                    a .movie-saved {
                         opacity: 1;
+                        transform: none;
                     }
+                    transform: none;
                 }
             }
         }

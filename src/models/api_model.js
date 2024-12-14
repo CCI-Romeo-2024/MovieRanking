@@ -18,17 +18,37 @@ class Api {
         this.categories = []
     }
 
-    async init(reset_cache = false) {
+    async init() {
         const cache_movies = Cache.get('movies')
         const cache_categories = Cache.get('categories')
 
-        if (cache_movies.date && cache_categories.date && !reset_cache) {
-            this.movies = [...cache_movies.data]
-            this.categories = [...cache_categories.data]
-        } else {
-            await Promise.all([this.updateMovies(), this.updateCategories()]) // launch at same time
-        }
+        const promise = []
 
+        if (cache_movies.date)
+            this.movies = [...cache_movies.data]
+        else
+            promise.push(this.updateMovies())
+
+        if (cache_categories.date)
+            this.categories = [...cache_categories.data]
+        else
+            promise.push(this.updateCategories())
+
+        if (promise.length)
+            await Promise.all(promise)
+    }
+
+    clearAllCache() {
+        Cache.destroy('movies')
+        Cache.destroy('categories')
+    }
+
+    clearMoviesCache() {
+        Cache.destroy('movies')
+    }
+
+    clearCategoriesCache() {
+        Cache.destroy('categories')
     }
 
     async updateMovies() {
@@ -36,21 +56,19 @@ class Api {
             const response = await this.api.get(Api.URL.movies);
             debug('✅ Movies')
             this.movies = response.data;
-            // this.saveLocalStorage('movies', this.movies)
+
             Cache.save('movies', this.movies)
 
         } catch (error) {
             debug(error)
         }
-
-
     }
     async updateCategories() {
         try {
             const response = await this.api.get(Api.URL.categories);
             debug('✅ Categories')
             this.categories = response.data;
-            // this.saveLocalStorage('categories', this.movies)
+
             Cache.save('categories', this.categories)
 
         } catch (error) {
@@ -94,12 +112,59 @@ class Api {
         return movie ? movie : null
     }
 
-    async postNewMovie(movie) {
+    /**
+     * @param {{name: String, author: String, img: String, category: String, description: String, video: String}} movie
+     * */
+    async createMovie(movie) {
         const result = await this.api.post(Api.URL.movies, movie)
 
-        init(true)
+        this.clearMoviesCache()
         return result
     }
+
+    /**
+     * @param {String} id
+     * @param {{name: String, author: String, img: String, category: String, description: String, video: String}} movie
+     * */
+    async updateMovie(id, movie) {
+        const result = await this.api.patch(`${Api.URL.movies}/${id}`, movie)
+
+        this.clearMoviesCache()
+        return result
+    }
+
+    /**
+     * @param {String} id
+     */
+    async deleteMovie(id) {
+        const result = await this.api.delete(`${Api.URL.movies}/${id}`)
+
+        this.clearMoviesCache()
+        return result
+    }
+
+    async createCategory(category) {
+        const result = await this.api.post(Api.URL.categories, category)
+
+        this.clearCategoriesCache()
+        return result
+    }
+
+    async updateCategory(id, category) {
+        const result = await this.api.put(`${Api.URL.categories}/${id}`, category)
+
+        this.clearCategoriesCache()
+        return result
+    }
+
+    async deleteCategory(id) {
+        const result = await this.api.delete(`${Api.URL.categories}/${id}`)
+
+        this.clearCategoriesCache()
+        return result
+    }
+
+
 
     async likeMovie(movieId) {
         return await this.api.patch(`${Api.URL.movies}/${movieId}/like`)

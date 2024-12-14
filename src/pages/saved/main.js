@@ -1,5 +1,5 @@
 import { Api, Engine, User } from '../../models/index.js';
-import { renderCategories } from './render.js';
+import { renderCategories } from '../../renders/category_option.js';
 
 
 const movies = Api.getMovies.filter((movie) => User.getMovie(movie.id).save)
@@ -13,9 +13,7 @@ export { searchEngine }
 searchEngine.loadParams()
 
 searchEngine.renderMovies()
-renderCategories(categories)
-
-// Load url settings
+renderCategories(categories, '#filter-select')
 
 
 // Controller

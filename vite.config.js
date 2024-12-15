@@ -23,11 +23,12 @@ export default defineConfig({
     resolve: {
         alias: {
             '@controllers': path.resolve(__dirname, 'src/controllers'),
-            '@lib': path.resolve(__dirname, 'src/lib'),
+            '@renders': path.resolve(__dirname, 'src/renders'),
             '@models': path.resolve(__dirname, 'src/models'),
             '@pages': path.resolve(__dirname, 'src/pages'),
-            '@renders': path.resolve(__dirname, 'src/renders'),
-            '@svg': path.resolve(__dirname, 'public/svg')
+            '@svg': path.resolve(__dirname, 'public/svg'),
+            '@lib': path.resolve(__dirname, 'src/lib'),
+            '@src': path.resolve(__dirname, 'src/')
         }
     },
 

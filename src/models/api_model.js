@@ -8,6 +8,7 @@ class Api {
         movies: '/api/v1/movies',
         categories: '/api/v1/categories'
     }
+    static CACHE_MAX_TIME = 3600 * 1000
 
     constructor (config) {
         this.api = axios.create({
@@ -24,12 +25,13 @@ class Api {
 
         const promise = []
 
-        if (cache_movies.date)
+
+        if (cache_movies.date && (cache_movies.date > Date.now() - Api.CACHE_MAX_TIME))
             this.movies = [...cache_movies.data]
         else
             promise.push(this.updateMovies())
 
-        if (cache_categories.date)
+        if (cache_categories.date && (cache_categories.date > Date.now() - Api.CACHE_MAX_TIME))
             this.categories = [...cache_categories.data]
         else
             promise.push(this.updateCategories())

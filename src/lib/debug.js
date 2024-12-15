@@ -1,4 +1,4 @@
-import env from '/src/env.js';
+import env from '@src/env.js';
 
 const debug = (...args) => {
     if (env.DEBUG) {

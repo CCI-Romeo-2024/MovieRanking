@@ -32,7 +32,7 @@ To build this project run
     - [x] Autoriser la suppression d’une catégorie seulement si elle n’est associée à aucun film
 
     
-- [ ] Faire un site responsive
+- [x] Faire un site responsive
 - [ ] Faire un mode déconnecté qui charge des fichiers contenant les films et les catégories > utile pour votre portfolio
 
 ## Authors

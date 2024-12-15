@@ -69,6 +69,10 @@
 
                     align-items: center;
 
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+
                     .tag-star {
                         font-size: 0.8em;
                         text-align: center;
@@ -160,4 +164,51 @@
             }
         }
     }
+}
+
+
+.app {
+    overflow: auto;
+
+    padding-bottom: 50px;
+    position: relative; // for burger menu
+}
+
+#app {
+    height: fit-content;
+}
+
+@media screen and (max-width: 800px) {
+    #app-movie {
+        gap: 60px;
+        .movie-content {
+            flex-direction: column;
+            gap: 60px;
+            align-items: center;
+
+            .movie-poster-tags {
+                align-items: center;
+                img {
+                    width: 300px;
+                }
+            }
+
+            .movie-trailer {
+                gap: 26px;
+
+                width: 70vw;
+                iframe {
+                    align-self: center;
+                    height: auto;
+                    width: 70vw;
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+
+
+
+
+
 }

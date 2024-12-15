@@ -37,6 +37,10 @@
                 &.active {
                     background: var(--primary);
                 }
+
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
             }
 
             .custom {
@@ -108,6 +112,23 @@
 
                 background-color: red;
             }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1400px) {
+    .app-header {
+        flex-direction: column-reverse;
+
+        gap: 30px;
+
+        .filters {
+            overflow: auto;
+        }
+
+        .search-box {
+            align-self: flex-end;
         }
     }
 }

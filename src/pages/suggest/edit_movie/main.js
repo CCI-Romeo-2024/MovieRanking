@@ -1,7 +1,8 @@
-import { renderCategories } from '/src/renders/category_option.js'
-import Form from '/src/controllers/form_controller.js'
-import {updateValueForm, Youtube} from '/src/lib/index.js'
-import {Api, Engine} from '/src/models/index.js'
+import { renderCategories } from '@renders/category_option.js'
+import {updateValueForm, Youtube} from '@lib/index.js'
+import Form from '@controllers/form_controller.js'
+import {Api, Engine} from '@models/index.js'
+import '@controllers/menu_controller.js';
 
 renderCategories(Api.getMovies.sort(Engine.ESort.azName), '#movie-select')
 renderCategories(Api.getCategories.sort(Engine.ESort.azName), '#category-select')
@@ -63,3 +64,4 @@ deleteMovieBtn.addEventListener('click', async (e) => {
 
     window.location.href = `../index.html`
 })
+

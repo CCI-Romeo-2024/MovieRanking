@@ -79,6 +79,15 @@
         <h1 class="title">
             Enregisté
         </h1>
+
+        <div class="burger-menu">
+            <div class="burger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+
         <div id="app">
             <div class="app-header">
                 <div class="filters">
@@ -109,7 +118,15 @@
                 <div class="movies-cards">
                     <!-- Movies Cards -->
                 </div>
-                <div class="pagination-controls">
+
+                <div class="no-movies-founds" id="no-movies-founds" style="display: none">
+                    <h4>
+                        Oups, on dirait que le film n'a pas été ajouter ?
+                    </h4>
+                    <a href="./suggest/">Suggérer un Ajouts</a>
+                </div>
+
+                <div class="pagination-controls" id="pagination">
                     <button id="pagination-controls-previous-btn">&#60;</button>
 
                     <span id="pagination-controls-current-page">1</span>

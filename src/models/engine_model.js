@@ -2,7 +2,7 @@ import renderMovieCard from '@renders/movie_card.js';
 import renderCategoryFilter from '@renders/category_filter.js';
 
 class Engine {
-    static pageSize = 20
+    static pageSize = 14
     static ESort = {
         azName: (a, b) => a.name.localeCompare(b.name, undefined, {sensitivity: 'base'}),
         zaName: (a, b) => b.name.localeCompare(a.name, undefined, {sensitivity: 'base'}),

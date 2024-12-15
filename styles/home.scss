@@ -129,6 +129,33 @@
                     transform: none;
                 }
             }
+
+
+        }
+
+        /* width */
+        &::-webkit-scrollbar {
+            width: 18px;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+            width: 6px;
+
+            border: 5px solid var(--bg-secondary);
+        }
+
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: #FF7516FF;
         }
 
         .no-movies-founds {
@@ -209,28 +236,3 @@
     }
 }
 
-
-/* width */
-::-webkit-scrollbar {
-    width: 18px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: var(--bg-secondary);
-    border-radius: 10px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: var(--primary);
-    border-radius: 10px;
-    width: 6px;
-
-    border: 5px solid var(--bg-secondary);
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #FF7516FF;
-}

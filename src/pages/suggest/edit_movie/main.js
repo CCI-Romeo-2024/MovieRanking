@@ -10,7 +10,7 @@ renderCategories(Api.getCategories.sort(Engine.ESort.azName), '#category-select'
 
 
 const movieSelect = document.getElementById('movie-select')
-const deleteMovieBtn = document.querySelector('button.submit')
+const deleteMovieBtn = document.querySelector('button.delete')
 const submitBtn = document.querySelector('button.submit')
 
 

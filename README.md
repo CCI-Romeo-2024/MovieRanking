@@ -1,7 +1,9 @@
 ## Preview
-To preview this project run
+To build this project run
 
 ```bash
+  npm i
+  npm run build
   npm run preview
 ```
 

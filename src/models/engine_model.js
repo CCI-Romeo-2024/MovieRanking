@@ -177,11 +177,16 @@ class Engine {
         const movies = this.getFilteredMovies
         const NMovies = movies.length
 
+        document.getElementById('no-movies-founds').style.display = !NMovies ? 'flex' : 'none'
+        document.getElementById('pagination').style.display = NMovies ? 'flex' : 'none'
+
         movies
                 .filter((movie, i) => i >= Engine.pageSize * (this.currentPage - 1) && i < Engine.pageSize * this.currentPage)
                 .forEach((movie, i) => {
                     moviesCardsElements.innerHTML += renderMovieCard(movie, i, this.search)
                 })
+
+
 
         this.maxPages = Math.ceil(NMovies / Engine.pageSize)
 

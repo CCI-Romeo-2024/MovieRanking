@@ -3,14 +3,29 @@ import { Cache } from './index.js'
 import axios from 'axios'
 
 class Api {
-    static URL = {
+    static URL = {}
+
+    static URL_DISCONNECTED = {
+        base: '',
+        movies: '/api/movies.json',
+        categories: '/api/categories.json'
+    }
+
+    static URL_CONNECTED = {
         base: 'https://europe-west3-gobelins-9079b.cloudfunctions.net',
         movies: '/api/v1/movies',
         categories: '/api/v1/categories'
     }
-    static CACHE_MAX_TIME = 3600 * 1000
+
+    static CACHE_MAX_TIME = 3600 * 1000 * 2 // 2h
+
 
     constructor (config) {
+        if (config.disconnected)
+            Api.URL = Api.URL_DISCONNECTED
+        else
+            Api.URL = Api.URL_CONNECTED
+
         this.api = axios.create({
             baseURL: Api.URL.base
         });
@@ -18,6 +33,8 @@ class Api {
         this.movies = []
         this.categories = []
     }
+
+
 
     async init() {
         const cache_movies = Cache.get('movies')
@@ -177,7 +194,7 @@ class Api {
     }
 }
 
-const api = new Api()
+const api = new Api({ disconnected: false })
 await api.init()
 
 debug(api.getMovies)

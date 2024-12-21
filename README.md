@@ -33,7 +33,7 @@ To build this project run
 
     
 - [x] Faire un site responsive
-- [ ] Faire un mode déconnecté qui charge des fichiers contenant les films et les catégories > utile pour votre portfolio
+- [x] Faire un mode déconnecté qui charge des fichiers contenant les films et les catégories > utile pour votre portfolio
 
 ## Authors
 
